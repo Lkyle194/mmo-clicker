@@ -1,0 +1,13 @@
+{
+  "name": "MMO Clicker",
+  "short_name": "MMO Clicker",
+  "description": "Jeu de clicker fantasy — cliquez, recrutez, progressez.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "orientation": "portrait",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
