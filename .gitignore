@@ -33,3 +33,4 @@ android/key.properties
 
 # Vercel
 .vercel
+.env*
