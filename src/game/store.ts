@@ -4,9 +4,9 @@ import {
   type GameState, defaultState, load, save, resetSave,
   doClick, tick, buyUnit, unlockSpec, unlockRelic, usePotion,
   selectClass, upgradeTier, doPrestige, prestigeGain,
-  computeRPS, computeRPC, computeGemMult, canUpgradeTier as canUpgradeTierFn,
+  computeRPS, computeRPC, computeGemMult,
 } from './engine';
-import { getTier, RELICS } from './data';
+import { getTier, TIERS, RELICS } from './data';
 
 // ── État brut (muté par le moteur, version bump pour réactivité) ──
 const state = load();
@@ -26,7 +26,11 @@ export const rps = derived(game, s => computeRPS(s));
 export const gemMult = derived(game, s => computeGemMult(s));
 export const tier = derived(game, s => getTier(s.tier));
 export const prestigePoints = derived(game, s => prestigeGain(s));
-export const canUpgradeTier = derived(game, s => canUpgradeTierFn(s));
+// Logique inlinée (évite l'alias canUpgradeTierFn, tree-shaken à tort par le minifier)
+export const canUpgrade = derived(game, s => {
+  if (s.tier >= TIERS.length) return false;
+  return s.totalGold >= TIERS[s.tier].threshold;
+});
 
 // ── Actions (exposées aux composants) ──
 export function click() {

@@ -1,5 +1,5 @@
 <script>
-  import { game, rpc, rps, tier, click, upgrade, canUpgradeTier } from '../game/store';
+  import { game, rpc, rps, tier, click, upgrade, canUpgrade } from '../game/store';
   import { fmt, fmtInt } from '../game/format';
   import { getTier, TIERS, CLASSES, getClass } from '../game/data';
   import { xpForLevel } from '../game/engine';
@@ -23,7 +23,7 @@
 
   const currentTier = $derived(getTier($game.tier));
   const nextTier = $derived($game.tier < TIERS.length ? TIERS[$game.tier] : null);
-  const canUp = $derived(canUpgradeTier($game));
+  const canUp = $derived($canUpgrade);
   const cls = $derived(getClass($game.selectedClass));
   const xpPct = $derived(Math.min(100, ($game.xp / $game.xpToNext) * 100));
 </script>
@@ -81,7 +81,7 @@
   <div class="panel progress-panel">
     <div class="xp-row">
       <span class="xp-label">⭐ Niveau {$game.level}</span>
-      <span class="xp-val">{$fmtInt($game.xp)} / {$fmtInt($game.xpToNext)} XP</span>
+      <span class="xp-val">{fmtInt($game.xp)} / {fmtInt($game.xpToNext)} XP</span>
     </div>
     <div class="bar">
       <div class="bar-fill xp" style="width:{xpPct}%"></div>

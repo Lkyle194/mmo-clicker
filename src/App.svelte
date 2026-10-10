@@ -23,10 +23,10 @@
 <div class="top-bar">
   <div class="nav-title">⚔️ MMO Clicker</div>
   <div class="nav-resources">
-    <span class="resource gold">🪙 {$fmt($game.gold)}</span>
-    <span class="resource gems">💎 {$fmt($game.gems)}</span>
+    <span class="resource gold">🪙 {fmt($game.gold)}</span>
+    <span class="resource gems">💎 {fmt($game.gems)}</span>
     <span class="resource level">⭐ Niv {$game.level}</span>
-    <span class="resource prestige">👑 {$fmt($prestigePoints)}</span>
+    <span class="resource prestige">👑 {fmt($prestigePoints)}</span>
   </div>
 </div>
 
