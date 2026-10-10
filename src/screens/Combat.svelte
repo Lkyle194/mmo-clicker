@@ -108,9 +108,9 @@
 </div>
 
 <style>
-  .combat { display: flex; flex-direction: column; gap: var(--spacing-md); }
+  .combat { display: flex; flex-direction: column; gap: var(--spacing-md); flex: 1; min-height: 0; }
 
-  .enemy-panel { display: flex; flex-direction: column; gap: var(--spacing-md); }
+  .enemy-panel { display: flex; flex-direction: column; gap: var(--spacing-md); flex: 1; min-height: 0; }
   .enemy-header { display: flex; align-items: center; gap: 12px; }
   .enemy-icon { font-size: 3rem; filter: drop-shadow(0 0 12px rgba(239,68,68,0.5)); }
   .enemy-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--color-text-bright); }
@@ -119,8 +119,9 @@
   .click-btn {
     position: relative;
     width: 100%;
-    aspect-ratio: 16/9;
-    max-height: 280px;
+    flex: 1;
+    min-height: 160px;
+    max-height: 420px;
     border-radius: var(--radius-xl);
     background:
       radial-gradient(circle at center, rgba(59,130,246,0.25), transparent 70%),
@@ -183,7 +184,10 @@
   .btn small { display: block; font-size: 0.65rem; font-weight: 500; opacity: 0.85; }
 
   @media (max-width: 600px) {
-    .stats-row { grid-template-columns: 1fr; }
-    .click-btn { aspect-ratio: 4/3; }
+    .stats-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+    .stat { flex-direction: column; text-align: center; padding: 8px 4px; gap: 2px; }
+    .stat-icon { font-size: 1.1rem; }
+    .stat-val { font-size: 0.85rem; }
+    .stat-label { font-size: 0.6rem; }
   }
 </style>

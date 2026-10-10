@@ -66,6 +66,7 @@
 
 html, body {
   height: 100%;
+  overflow: hidden;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-main);
@@ -79,10 +80,15 @@ body {
     radial-gradient(ellipse at top, rgba(59,130,246,0.08), transparent 50%),
     radial-gradient(ellipse at bottom, rgba(139,92,246,0.08), transparent 50%),
     var(--color-bg);
-  min-height: 100dvh;
 }
 
-#app { min-height: 100dvh; }
+/* Layout plein écran : le jeu tient dans le viewport, pas de scroll global */
+#app {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
 button {
   font-family: inherit;
@@ -139,14 +145,16 @@ button {
 .resource.level { color: var(--color-xp); }
 .resource.prestige { color: var(--color-mythic); }
 
-/* ── Layout principal ── */
+/* ── Layout principal (plein écran, sans scroll global) ── */
 .layout {
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  min-height: calc(100dvh - 52px);
 }
 .main-area {
   flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
@@ -154,6 +162,8 @@ button {
   max-width: 1100px;
   width: 100%;
   margin: 0 auto;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 /* ── Navigation par onglets (bas sur mobile, latérale sur desktop) ── */
@@ -170,7 +180,7 @@ button {
 .tab-nav::-webkit-scrollbar { display: none; }
 .tab-btn {
   flex: 1;
-  min-width: 64px;
+  min-width: 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,6 +194,10 @@ button {
   white-space: nowrap;
 }
 .tab-btn .tab-icon { font-size: 1.3rem; }
+.tab-btn span:last-child { font-size: 0.72rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+@media (max-width: 600px) {
+  .tab-btn span:last-child { font-size: 0.62rem; }
+}
 .tab-btn:hover { background: var(--color-surface); color: var(--color-text); }
 .tab-btn.active {
   background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
