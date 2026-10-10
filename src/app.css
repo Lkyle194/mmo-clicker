@@ -88,6 +88,14 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* safe-area bas/gauche/droite : recule l'UI sous la nav bar / zone geste Android.
+     Le haut est géré par .top-bar (sticky) qui porte elle-même le safe-area-inset-top.
+     Inactif sur desktop (valeurs 0). */
+  padding:
+    0
+    env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px)
+    env(safe-area-inset-left, 0px);
 }
 
 button {
@@ -112,7 +120,9 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-sm);
-  padding: 10px var(--spacing-md);
+  /* safe-area-inset-top : abaisse le contenu sous la status bar Android (caméra/batterie/heure).
+     Le fond sombre de la barre remplit la zone système. Inactif sur desktop (valeur 0). */
+  padding: calc(10px + env(safe-area-inset-top, 0px)) var(--spacing-md) 10px;
   background: rgba(17,24,39,0.92);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
