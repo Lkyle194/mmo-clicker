@@ -13,7 +13,6 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.0",
-    "jsdom": "^30.1.2",
     "svelte": "^5.57.0",
     "typescript": "^7.0.2",
     "vite": "^8.3.0"
