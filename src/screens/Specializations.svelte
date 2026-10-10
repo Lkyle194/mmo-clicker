@@ -84,7 +84,7 @@
 </div>
 
 <style>
-  .specs { display: flex; flex-direction: column; gap: var(--spacing-md); }
+  .specs { display: flex; flex-direction: column; gap: var(--spacing-md); flex: 1; min-height: 0; }
   .hint { font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.4; margin-bottom: var(--spacing-sm); }
 
   .class-row { display: flex; gap: 8px; flex-wrap: wrap; }

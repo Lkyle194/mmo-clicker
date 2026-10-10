@@ -119,9 +119,8 @@
   .click-btn {
     position: relative;
     width: 100%;
-    flex: 1;
+    flex: 1 1 auto;
     min-height: 160px;
-    max-height: 420px;
     border-radius: var(--radius-xl);
     background:
       radial-gradient(circle at center, rgba(59,130,246,0.25), transparent 70%),
@@ -171,7 +170,7 @@
   .stat-val { font-weight: 800; font-size: 1rem; color: var(--color-text-bright); }
   .stat-label { font-size: 0.7rem; color: var(--color-text-secondary); }
 
-  .progress-panel { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+  .progress-panel { display: flex; flex-direction: column; gap: var(--spacing-sm); flex-shrink: 1; min-height: 0; }
   .xp-row { display: flex; justify-content: space-between; font-size: 0.85rem; }
   .xp-label { font-weight: 700; color: var(--color-xp); }
   .xp-val { color: var(--color-text-secondary); }

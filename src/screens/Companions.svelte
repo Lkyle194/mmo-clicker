@@ -58,7 +58,7 @@
 </div>
 
 <style>
-  .companions { display: flex; flex-direction: column; gap: var(--spacing-md); }
+  .companions { display: flex; flex-direction: column; gap: var(--spacing-md); flex: 1; min-height: 0; }
   .hint { font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.4; }
 
   .tier-block.locked { opacity: 0.55; }

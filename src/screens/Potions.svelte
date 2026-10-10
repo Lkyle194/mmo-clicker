@@ -55,7 +55,7 @@
 </div>
 
 <style>
-  .potions { display: flex; flex-direction: column; gap: var(--spacing-md); }
+  .potions { display: flex; flex-direction: column; gap: var(--spacing-md); flex: 1; min-height: 0; }
   .hint { font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.4; margin-bottom: var(--spacing-sm); }
 
   .active-banner {
